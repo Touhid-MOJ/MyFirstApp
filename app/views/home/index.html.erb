@@ -7,14 +7,17 @@
         <li class="media my-4">
             <img src="<%= q.gravatar %>" class="mr-3" alt="...">
             <div class="media-body">
-            <h5 class="mt-0 mb-1"><%= q.email %> asked:</h5>
-            <%= time_ago_in_words q.created_at %>
-            <p><%= q.body %></p>
-            <div>
-                <a href="<%= question_path(q) %>" class="btn btn-secondary btn-sm" role="button">View Answers</a>
-            </div>
+                <h5 class="mt-0 mb-1"><%= q.email %> asked:</h5>
+                <%= time_ago_in_words q.created_at %>
+                <p><%= q.body %></p>
+                    <div>
+                        <a href="<%= question_path(q) %>" class="btn btn-secondary btn-sm" role="button">View Answers</a>
+                    </div>
             </div>
         </li>
-        <% end %>
+    <% end %>
+    <% if @questions.empty? %>
+    <li class="media my-4"><div class="media-body">Be the first one to ask a question.</div></li>
+    <% end %>
     </ul>
 </div>
